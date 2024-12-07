@@ -3,223 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Contact Center</title>
+    <title>Ringflow - Cloud Contact Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-        }
+        /* Reset and Basic Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; }
 
         /* Header Styles */
-        header {
-            background-color: #4CAF50;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header .logo h1 {
-            color: #fff;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff;
-        }
-
-        nav ul li a.button {
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        /* Button Colors */
-        .button.primary {
-            background-color: #4CAF50;
-        }
-
-        .button.secondary {
-            background-color: #f44336;
-        }
-
-        .button.success {
-            background-color: #8BC34A;
-        }
-
-        .button.danger {
-            background-color: #FF5722;
-        }
-
-        .button:hover {
-            opacity: 0.9;
-        }
+        header { background-color: #4CAF50; padding: 30px 20px; text-align: center; color: white; }
+        header .logo h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        nav ul { list-style-type: none; padding: 0; margin-top: 20px; }
+        nav ul li { display: inline; margin: 0 15px; }
+        nav ul li a { text-decoration: none; color: white; font-size: 18px; padding: 12px 25px; background-color: #333; border-radius: 5px; }
+        nav ul li a:hover { background-color: #ff5722; }
 
         /* Main Section Styles */
-        main {
-            padding: 40px 10%;
-            text-align: center;
-        }
+        .intro { text-align: center; padding: 60px 20px; background-color: #fff; margin-bottom: 60px; }
+        .intro h2 { font-size: 3rem; margin-bottom: 30px; color: #4CAF50; }
+        .intro p { font-size: 1.4rem; margin-bottom: 40px; color: #777; }
+        .intro a { padding: 15px 40px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-size: 1.2rem; }
 
-        .intro {
-            margin-bottom: 50px;
-        }
+        /* Services Section */
+        .services { display: flex; justify-content: space-around; padding: 60px 20px; background-color: #fff; margin-bottom: 60px; }
+        .service-card { background-color: #fff; padding: 25px; width: 30%; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); border-radius: 10px; margin-bottom: 30px; text-align: center; }
+        .service-card h3 { font-size: 2rem; margin-bottom: 20px; }
+        .service-card p { font-size: 1.2rem; margin-bottom: 25px; color: #555; }
+        .service-card a { padding: 12px 30px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-size: 1.2rem; }
 
-        .intro h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .services {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 50px;
-        }
-
-        .service-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 30%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .contact {
-            margin-bottom: 50px;
-        }
-
-        .contact a {
-            font-size: 1.2rem;
-        }
+        /* Contact Section */
+        .contact { text-align: center; padding: 60px 20px; margin-bottom: 60px; }
+        .contact a { padding: 15px 40px; background-color: #ff5722; color: white; text-decoration: none; border-radius: 5px; font-size: 1.2rem; }
 
         /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
+        footer { background-color: #333; color: white; text-align: center; padding: 30px 20px; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .services {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .service-card {
-                width: 80%;
-                margin-bottom: 20px;
-            }
-
-            main {
-                padding: 20px;
-            }
+            .services { flex-direction: column; align-items: center; }
+            .service-card { width: 80%; margin-bottom: 30px; }
+            .intro h2 { font-size: 2.5rem; }
         }
 
         @media (max-width: 480px) {
-            header .logo h1 {
-                font-size: 1.5rem;
-            }
-
-            nav ul li a {
-                font-size: 16px;
-            }
-
-            .intro h2 {
-                font-size: 2rem;
-            }
-
-            .contact a {
-                font-size: 1.1rem;
-            }
+            header .logo h1 { font-size: 2rem; }
+            nav ul li a { font-size: 16px; padding: 8px 15px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Section -->
     <header>
         <div class="logo">
-            <h1>Cloud Contact Center</h1>
+            <h1>Ringflow</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="https://www.ringflow.com/" class="button primary">Home</a></li>
-                <li><a href="https://www.ringflow.com/" class="button secondary">Features</a></li>
-                <li><a href="https://www.ringflow.com/" class="button success">Contact</a></li>
+                <li><a href="https://www.ringflow.com/" class="button">Home</a></li>
+                <li><a href="https://www.ringflow.com/" class="button">Product</a></li>
+                <li><a href="https://www.ringflow.com/" class="button">Solution</a></li>
+                <li><a href="https://www.ringflow.com/" class="button">Pricing</a></li>
+                <li><a href="https://www.ringflow.com/" class="button">Resources</a></li>
+                <li><a href="https://www.ringflow.com/" class="button">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Main Content Section -->
     <main>
+        <!-- Introduction Section -->
         <section class="intro">
-            <h2>Welcome to Our Cloud Contact Center</h2>
-            <p>Efficiently manage customer interactions with our powerful cloud-based contact center solution. Streamline communication, enhance customer service, and boost productivity.</p>
-            <a href="https://www.ringflow.com/" class="button primary">Learn More</a>
+            <h2>Enhance Your Business with Ultimate Communication Solutions</h2>
+            <p>Ringflow handles your personal, business, and corporate phone needs with a unified app available on Web, Android, and iOS.</p>
+            <a href="https://www.ringflow.com/" class="button">Get Started</a>
         </section>
 
+        <!-- Services Section -->
         <section class="services">
-            <h2>Our Services</h2>
-            <div class="service-card">
-                <h3>VoIP Solutions</h3>
-                <p>Seamless, scalable VoIP solutions for businesses of any size.</p>
-                <a href="https://www.ringflow.com/" class="button success">Get Started</a>
-            </div>
-            <div class="service-card">
-                <h3>Virtual Numbers</h3>
-                <p>Enhance your business presence with local and international virtual numbers.</p>
-                <a href="https://www.ringflow.com/" class="button danger">Learn More</a>
-            </div>
             <div class="service-card">
                 <h3>Cloud Contact Center</h3>
-                <p>Manage customer interactions from anywhere with a powerful cloud-based solution.</p>
-                <a href="https://www.ringflow.com/" class="button primary">Start Now</a>
+                <p>Manage customer interactions seamlessly with a powerful cloud-based solution that ensures scalability and efficiency.</p>
+                <a href="https://www.ringflow.com/" class="button">Learn More</a>
+            </div>
+            <div class="service-card">
+                <h3>AI-Powered Contact Center</h3>
+                <p>Revolutionize your customer service with live coaching, sentiment analysis, and AI-backed customer intelligence.</p>
+                <a href="https://www.ringflow.com/" class="button">Get Started</a>
+            </div>
+            <div class="service-card">
+                <h3>VoIP Solutions</h3>
+                <p>Seamless VoIP solutions that offer enhanced communication and reduced costs for businesses of any size.</p>
+                <a href="https://www.ringflow.com/" class="button">Start Now</a>
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section class="contact">
             <h2>Get in Touch</h2>
-            <p>If you’re ready to upgrade your communication solutions, we’re here to help!</p>
-            <a href="https://www.ringflow.com/" class="button secondary">Contact Us</a>
+            <p>If you’re ready to take your business communication to the next level, we're here to help!</p>
+            <a href="https://www.ringflow.com/contact-us/" class="button">Contact Us</a>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Cloud Contact Center. All Rights Reserved.</p>
+        <p>&copy; 2024 Ringflow. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Redirect when a button is clicked
-        const buttons = document.querySelectorAll('a.button');
-
+        // Redirect buttons to specified link
+        const buttons = document.querySelectorAll('.button');
         buttons.forEach(button => {
             button.addEventListener('click', (e) => {
-                e.preventDefault();  // Prevent default link action
-                window.location.href = "https://www.ringflow.com/"; // Redirect
+                e.preventDefault();
+                window.location.href = "https://www.ringflow.com/";
             });
         });
     </script>
+
 </body>
 </html>
